@@ -13,11 +13,9 @@
     "url": "https://github.com/technology-studio/"
   },
   "license": "MIT",
-  "private": true,
+  "private": false,
   "scripts": {
     "test": "jest",
-    "clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && npm cache clean --force",
-    "newclear": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf ios/build && rm -rf node_modules/ && npm cache clean --force && npm i",
     "test:watch": "jest --watch",
     "updateSnapshot": "jest --updateSnapshot",
     "coverage": "jest --coverage && open coverage/lcov-report/index.html || xdg-open coverage/lcov-report/index.html",
@@ -26,15 +24,22 @@
     "fixcode": "eslint --format=node_modules/eslint-formatter-pretty . --fix",
     "git-hook": "yarn -s lint"
   },
+  "bin": {
+    "rimraf-except": "./cli.js"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "yarn run git-hook",
       "pre-push": "yarn run git-hook"
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "commander": "^2.19.0",
+    "fs-extra": "^7.0.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/register": "^7.0.0",
     "@txo/babel-preset": "^1.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
@@ -68,8 +73,7 @@
     ],
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "<rootDir>/__tests__/Setup.js",
-      "<rootDir>/__tests__/Utils/"
+      "<rootDir>/__tests__/Setup.js"
     ],
     "setupFiles": [
       "<rootDir>/__tests__/Setup"
