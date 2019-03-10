@@ -1,6 +1,6 @@
 {
   "name": "@txo/rimraf-except",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Technology Studio - Rimraf except",
   "main": "index.js",
   "repository": {
@@ -34,16 +34,16 @@
     }
   },
   "dependencies": {
-    "commander": "^2.19.0",
-    "fs-extra": "^7.0.1"
-  },
-  "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/register": "^7.0.0",
     "@txo/babel-preset": "^1.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
+    "commander": "^2.19.0",
+    "fs-extra": "^7.0.1"
+  },
+  "devDependencies": {
     "eslint": "^5.11.1",
     "eslint-config-txo-react": "^2.0.0",
     "eslint-formatter-pretty": "^2.0.0",
